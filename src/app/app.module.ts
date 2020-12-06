@@ -10,9 +10,13 @@ import { MatFormFieldModule, MatLabel } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
+import { HomeComponentComponent } from './pages/home-component/home-component.component';
+import { LinksComponent } from './pages/links/links.component';
+import { CategoriesComponent } from './pages/categories/categories.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent],
+  declarations: [AppComponent, LoginPageComponent, HomeComponentComponent, LinksComponent, CategoriesComponent, ProfileComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
