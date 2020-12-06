@@ -1,3 +1,4 @@
+import { AuthGuard } from './auth/auth.guard';
 import { HomeComponentComponent } from './pages/home-component/home-component.component';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { NgModule } from '@angular/core';
@@ -15,18 +16,22 @@ const routes: Routes = [
   {
     path: 'home', // localhost:4200/home
     component: HomeComponentComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'links',
     component: LinksComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'categories',
     component: CategoriesComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'profile',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'login',
@@ -37,5 +42,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+  providers: [AuthGuard],
 })
 export class AppRoutingModule {}

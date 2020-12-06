@@ -4,6 +4,8 @@
     <h2>Please log in to see your saved links...</h2>
   </div>
 
+  <p *ngIf="errorMsg != null">{{ errorMsg }}</p>
+
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="outline">
       <mat-label>Login</mat-label>

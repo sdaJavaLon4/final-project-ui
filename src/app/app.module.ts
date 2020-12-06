@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,7 +17,14 @@ import { CategoriesComponent } from './pages/categories/categories.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
-  declarations: [AppComponent, LoginPageComponent, HomeComponentComponent, LinksComponent, CategoriesComponent, ProfileComponent],
+  declarations: [
+    AppComponent,
+    LoginPageComponent,
+    HomeComponentComponent,
+    LinksComponent,
+    CategoriesComponent,
+    ProfileComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -26,6 +34,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatInputModule,
     MatButtonModule,
     ReactiveFormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
