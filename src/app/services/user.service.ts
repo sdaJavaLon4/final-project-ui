@@ -22,6 +22,15 @@ export class UserService {
     });
   }
 
+  getUserProfile(userParam: string): Observable<User> {
+    return this.httpClient.get<User>(this.url, {
+      headers: {
+        Authorization: `Basic ${userParam}`,
+      },
+      withCredentials: true,
+    });
+  }
+
   checkSession(): Observable<User> {
     return this.httpClient.get<User>(this.url, {
       withCredentials: true,
