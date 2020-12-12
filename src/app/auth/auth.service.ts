@@ -26,8 +26,10 @@ export class AuthService {
   }
 
   logOut() {
-    this.username = null;
-    console.log(`logged out`);
+    this.userService.logOut().subscribe(() => {
+      this.username = null;
+      this.isAuthentiacted.next(false);
+    });
   }
 
   isLoggedIn(): Promise<boolean> {
@@ -39,6 +41,7 @@ export class AuthService {
       .toPromise()
       .then((user) => {
         this.username = user.login;
+        setTimeout(() => this.isAuthentiacted.next(true));
         return true;
       })
       .catch(() => false);

@@ -1,1 +1,42 @@
-<p>links works!</p>
+<div class="wrapper">
+  <table
+    *ngIf="links != null"
+    mat-table
+    [dataSource]="links"
+    class="mat-elevation-z8"
+  >
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Url Column -->
+    <ng-container matColumnDef="url">
+      <th mat-header-cell *matHeaderCellDef>Url</th>
+      <td mat-cell *matCellDef="let element">
+        <a [href]="element.url" target="_blank">{{ element.url }}</a>
+      </td>
+    </ng-container>
+
+    <!-- Description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef>Description</th>
+      <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+    </ng-container>
+
+    <!-- LinkStatus Column -->
+    <ng-container matColumnDef="linkStatus">
+      <th mat-header-cell *matHeaderCellDef>Link Status</th>
+      <td mat-cell *matCellDef="let element">{{ element.linkStatus }}</td>
+    </ng-container>
+
+    <!-- LinkCategory Column -->
+    <ng-container matColumnDef="linkCategory">
+      <th mat-header-cell *matHeaderCellDef>Link Category</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.linkCategory.name }}
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>

@@ -15,6 +15,8 @@ import { HomeComponentComponent } from './pages/home-component/home-component.co
 import { LinksComponent } from './pages/links/links.component';
 import { CategoriesComponent } from './pages/categories/categories.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { NavComponent } from './components/nav/nav.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     LinksComponent,
     CategoriesComponent,
     ProfileComponent,
+    NavComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     MatButtonModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
