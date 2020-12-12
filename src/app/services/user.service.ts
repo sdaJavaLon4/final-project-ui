@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Subject, Observable } from 'rxjs';
-import { AuthService } from '../auth/auth.service';
 import { User } from '../dto/user.dto';
 
 @Injectable({
@@ -22,11 +21,8 @@ export class UserService {
     });
   }
 
-  getUserProfile(userParam: string): Observable<User> {
+  getUserProfile(): Observable<User> {
     return this.httpClient.get<User>(this.url, {
-      headers: {
-        Authorization: `Basic ${userParam}`,
-      },
       withCredentials: true,
     });
   }

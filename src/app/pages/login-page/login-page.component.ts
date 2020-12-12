@@ -22,13 +22,9 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
-    sessionStorage.setItem(
-      'user',
-      btoa(this.loginForm.get('login').value + ':' + this.loginForm.get('password').value)
-    );
     this.subscription = this.authService.isAuthentiacted.subscribe((isAuth) => {
       if (isAuth) {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/home');
       } else {
         this.errorMsg = 'incorrect login or password';
       }
