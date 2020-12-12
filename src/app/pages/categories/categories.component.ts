@@ -12,9 +12,17 @@ export class CategoriesComponent implements OnInit {
   displayedColumns: string[] = [];
   categories: LinkCategory[] = null;
 
+  linkCategories: LinkCategory[]=null ;
+
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
     // TODO: call method from categoryService
+    this.categoryService.getAllCategories(true).subscribe((linkCategories)=>{
+      this.linkCategories = linkCategories.map<LinkCategory>((linkCategory)=>{
+        return linkCategory
+      })
+    });
+    }
   }
-}
+
