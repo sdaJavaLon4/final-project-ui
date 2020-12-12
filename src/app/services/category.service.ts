@@ -13,7 +13,7 @@ export class CategoryService {
 
   getAllCategories(showLinks: boolean): Observable<Array<LinkCategory>> {
     // TODO: implement http communication as is link service, url: `${this.url}/${showLinks}`
-   return this.httpClient.get<Array<LinkCategory>>(this.url, {
+   return this.httpClient.get<Array<LinkCategory>>(this.url+'/true', {
       withCredentials: true,
     });
   }
