@@ -8,13 +8,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CategoryService {
   private url = 'http://localhost:8080/link/category';
-
+  
+  private showLinks = true;
+  private getCategoriesUrl = `${this.url}/${this.showLinks}`
   constructor(private httpClient: HttpClient) {}
 
   getAllCategories(showLinks: boolean): Observable<Array<LinkCategory>> {
     // TODO: implement http communication as is link service, url: `${this.url}/${showLinks}`
-   return this.httpClient.get<Array<LinkCategory>>(this.url+'/true', {
+   
+   return this.httpClient.get<Array<LinkCategory>>(this.getCategoriesUrl, {
       withCredentials: true,
     });
   }
+
 }
