@@ -8,7 +8,6 @@ import {
   UrlTree,
 } from '@angular/router';
 import { Observable } from 'rxjs';
-import { TextAttribute } from '@angular/compiler/src/render3/r3_ast';
 
 @Injectable()
 export class AuthGuard implements CanActivate {

@@ -31,7 +31,6 @@ export class AuthService {
   }
 
   isLoggedIn(): Promise<boolean> {
-    console.log('isLoggedIn', this.username);
     if (this.username != null) {
       return Promise.resolve(true);
     }

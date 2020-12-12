@@ -24,7 +24,7 @@ export class LoginPageComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.authService.isAuthentiacted.subscribe((isAuth) => {
       if (isAuth) {
-        this.router.navigateByUrl('/profile');
+        this.router.navigateByUrl('/home');
       } else {
         this.errorMsg = 'incorrect login or password';
       }

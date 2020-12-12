@@ -1,1 +1,7 @@
-<p>profile works!</p>
+<div *ngIf="user != null">
+  <p>Login: {{ user.login }}</p>
+  <p>
+    Email: <span *ngIf="user.email != null">{{ user.email }}</span>
+    <span *ngIf="user.email == null">No email</span>
+  </p>
+</div>
