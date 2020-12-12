@@ -9,12 +9,20 @@ import { LinkCategory } from 'src/app/dto/link-category.dto';
 })
 export class CategoriesComponent implements OnInit {
   // TODO: set displayed columns
-  displayedColumns: string[] = [];
+  displayedColumns: string[] = [
+    'sport',
+    'health',
+    'cooking',
+    'parental',
+  ];
   categories: LinkCategory[] = null;
+ 
 
   constructor(private categoryService: CategoryService) {}
 
   ngOnInit(): void {
+    this.categoryService.getAllCategories(true).subscribe()
+    
     // TODO: call method from categoryService
   }
 }
