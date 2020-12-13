@@ -12,8 +12,27 @@ export class CategoryService {
   constructor(private httpClient: HttpClient) {}
 
   getAllCategories(showLinks: boolean): Observable<Array<LinkCategory>> {
-    // TODO: implement http communication as is link service, url: `${this.url}/${showLinks}`
-  return this.httpClient.get<Array<LinkCategory>>(`${this.url}/${showLinks}`,
-    {withCredentials: true});
+    return this.httpClient.get<Array<LinkCategory>>(
+      `${this.url}/${showLinks}`,
+      { withCredentials: true }
+    );
+  }
+
+  createCategory(name: String): Observable<any> {
+    return this.httpClient.post(
+      this.url,
+      {
+        name: name,
+      },
+      {
+        withCredentials: true,
+      }
+    );
+  }
+
+  deleteCategory(id: String): Observable<any> {
+    return this.httpClient.delete(`${this.url}/${id}`, {
+      withCredentials: true,
+    });
   }
 }

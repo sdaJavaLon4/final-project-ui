@@ -1,0 +1,14 @@
+<h2>Fill in categry name and clik create button!</h2>
+<form [formGroup]="createCategoryForm" (ngSubmit)="createCategory()">
+  <mat-form-field appearance="outline">
+    <mat-label>Categry name</mat-label>
+    <input matInput formControlName="name" />
+  </mat-form-field>
+  <button
+    mat-stroked-button
+    color="primary"
+    [disabled]="createCategoryForm.invalid"
+  >
+    Create category
+  </button>
+</form>

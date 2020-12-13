@@ -1,3 +1,5 @@
+import { UiService } from './../../services/ui.service';
+import { CreateCategoryDialogComponent } from './create-category-dialog/create-category-dialog.component';
 import { LinkService } from './../../services/link.service';
 import { CategoryService } from './../../services/category.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,6 +12,7 @@ import {
   trigger,
 } from '@angular/animations';
 import { Link } from 'src/app/dto/link.dto';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-categories',
@@ -33,10 +36,34 @@ export class CategoriesComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
-    private linkService: LinkService
+    private linkService: LinkService,
+    private dialog: MatDialog,
+    private uiService: UiService
   ) {}
 
   ngOnInit(): void {
+    this.fetchCategories();
+  }
+
+  openCreateCategoryDialog() {
+    const dialogRef = this.dialog.open(CreateCategoryDialogComponent, {
+      width: '600px',
+    });
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.fetchCategories();
+    });
+  }
+
+  deleteCategory(event: MouseEvent, categoryId: String) {
+    event.stopPropagation();
+    this.categoryService
+      .deleteCategory(categoryId)
+      .subscribe(() => this.fetchCategories());
+  }
+
+  private fetchCategories() {
+    this.uiService.isLoading.next(true);
     this.categoryService.getAllCategories(true).subscribe((categories) => {
       this.categories = categories;
       this.categories.forEach((category) => {
@@ -45,6 +72,7 @@ export class CategoriesComponent implements OnInit {
             this.linkService.correctLink
           );
         }
+        this.uiService.isLoading.next(false);
       });
     });
   }

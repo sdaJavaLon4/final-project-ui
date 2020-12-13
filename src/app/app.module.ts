@@ -19,6 +19,11 @@ import { NavComponent } from './components/nav/nav.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CreateCategoryDialogComponent } from './pages/categories/create-category-dialog/create-category-dialog.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { ProgressIndicatorComponent } from './progress-indicator/progress-indicator.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +34,8 @@ import { MatListModule } from '@angular/material/list';
     CategoriesComponent,
     ProfileComponent,
     NavComponent,
+    CreateCategoryDialogComponent,
+    ProgressIndicatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,6 +50,9 @@ import { MatListModule } from '@angular/material/list';
     MatTableModule,
     MatExpansionModule,
     MatListModule,
+    MatIconModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
