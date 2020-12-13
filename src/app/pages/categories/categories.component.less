@@ -6,15 +6,34 @@ div.wrapper {
   .mat-header-cell {
     text-align: center;
     justify-content: center;
-   }
+  }
 
-   .mat-cell {
+  .mat-cell {
     text-align: center;
     justify-content: center;
-   }
+  }
 
   table {
     width: 70%;
   }
- 
+
+  .element-detail {
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
+
+  tr.detail-row {
+    height: 0;
+  }
+
+  .element-row td {
+    border-bottom-width: 0;
+  }
+
+  mat-list-item {
+    a {
+      margin-right: 16px;
+    }
+  }
 }

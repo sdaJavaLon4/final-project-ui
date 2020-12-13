@@ -20,18 +20,7 @@ export class LinksComponent implements OnInit {
 
   ngOnInit(): void {
     this.linkService.getAllLinks().subscribe((links) => {
-      this.links = links.map<Link>((link) => {
-        if (!link.url.includes('https')) {
-          return {
-            id: link.id,
-            url: `https://${link.url}`,
-            description: link.description,
-            linkStatus: link.linkStatus,
-            linkCategory: link.linkCategory,
-          };
-        }
-        return link;
-      });
+      this.links = links.map<Link>(this.linkService.correctLink);
     });
   }
 }

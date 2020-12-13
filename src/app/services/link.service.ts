@@ -1,3 +1,4 @@
+import { LinkCategory } from './../dto/link-category.dto';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -15,5 +16,18 @@ export class LinkService {
     return this.httpClient.get<Array<Link>>(this.url, {
       withCredentials: true,
     });
+  }
+
+  correctLink(link: Link) {
+    if (!link.url.includes('https')) {
+      return {
+        id: link.id,
+        url: `https://${link.url}`,
+        description: link.description,
+        linkStatus: link.linkStatus,
+        linkCategory: link.linkCategory,
+      };
+    }
+    return link;
   }
 }
